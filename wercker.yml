@@ -7,7 +7,7 @@ box: node
 build:
   steps:
     - npm-install
-    - npm-test
+#    - npm-test
 #    - script:
 #        name: echo nodejs information
 #        code: |
