@@ -21,6 +21,12 @@ build:
   # Steps make up the actions in your pipeline
   # Read more about steps on our dev center:
   # http://devcenter.wercker.com/docs/steps/index.html
+build:
+  steps:
+    - wercker-labs/azure-ftp-deploy:
+        publish-url: ftp://azureciexample.azurewebsites.net/
+        username: 'AzureCIExample\gurezo'
+        password: 'yamahaow01'
   steps:
     # A step that executes `npm install` command
     - npm-install
