@@ -1,6 +1,6 @@
-#FTP_USERNAME:"gurezo"
-#FTP_PASSWORD:"yamahaow01"
-#TP_SERVER_URL:"http://azureciexample.azurewebsites.net"
+${FTP_USERNAME}: "gurezo"
+${FTP_PASSWORD}: "yamahaow01"
+${FTP_SERVER_URL}: "http://azureciexample.azurewebsites.net"
 
 box: node
 build:
@@ -27,5 +27,4 @@ deploy:
     - script:
         name: azure ftp deploy
         code: |
-#          lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "mirror -Rev dist/. /site/wwwroot/." ${FTP_SERVER_URL}
-          lftp -u "gurezo","yamahaow01" -e "mirror -Rev dist/. /site/wwwroot/." "http://azureciexample.azurewebsites.net"
+          lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "mirror -Rev dist/. /site/wwwroot/." ${FTP_SERVER_URL}
