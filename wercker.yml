@@ -1,3 +1,7 @@
+FTP_USERNAME:"gurezo"
+FTP_PASSWORD:"yamahaow01"
+FTP_SERVER_URL:"http://azureciexample.azurewebsites.net"
+
 box: node
 build:
   steps:
