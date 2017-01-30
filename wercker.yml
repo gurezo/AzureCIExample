@@ -23,4 +23,5 @@ deploy:
     - script:
         name: azure ftp deploy
         code: |
-          lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "mirror -Rev dist/. /site/wwwroot/." ${FTP_SERVER_URL}
+#          lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "mirror -Rev dist/. /site/wwwroot/." ${FTP_SERVER_URL}
+          lftp -u 'gurezo','yamahaow01' -e "mirror -Rev dist/. /site/wwwroot/." 'http://azureciexample.azurewebsites.net'
