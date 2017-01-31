@@ -7,13 +7,13 @@ box: node
 build:
   steps:
     - npm-install
-# npm-test pipe line add retry3
-#    - npm-test
-#    - script:
-#        name: echo nodejs information
-#        code: |
-#          echo "node version $(node -v) running"
-#          echo "npm version $(npm -v) running"
+# npm-test pipe line test
+    - npm-test
+    - script:
+        name: echo nodejs information
+        code: |
+          echo "node version $(node -v) running"
+          echo "npm version $(npm -v) running"
 deploy:
   steps:
     - script:
