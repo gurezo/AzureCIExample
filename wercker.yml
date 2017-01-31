@@ -7,7 +7,7 @@ box: node
 build:
   steps:
     - npm-install
-# npm-test pipe line add retry
+# npm-test pipe line add retry2
 #    - npm-test
 #    - script:
 #        name: echo nodejs information
