@@ -3,9 +3,6 @@ ${FTP_USERNAME}: "gurezo"
 ${FTP_PASSWORD}: "yamahaow01"
 ${FTP_SERVER_URL}: "http://azureciexample.azurewebsites.net"
 
-before_install:
-- export CHROME_BIN=chromium-browser
-
 box: node
 build:
   steps:
