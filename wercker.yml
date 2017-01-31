@@ -7,7 +7,7 @@ box: node
 build:
   steps:
     - npm-install
-# npm-test pipe line test
+# npm-test pipe line test　わからん
     - npm-test
     - script:
         name: echo nodejs information
