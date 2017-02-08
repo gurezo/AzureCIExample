@@ -55,8 +55,9 @@ deploy:
     - script:
         name: azure ftp deploy
         code: |
-          lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "mirror -Re dist/. /site/wwwroot/." ${FTP_SERVER_URL}
-after-steps:
-    - slack-notifier:
-        url: $SLACK_WEBHOOK_URL
-        username: Wercker
+          lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "set ssl:verify-certificate no;mirror -Rev -X wercker.yml dist/. /site/wwwroot/." ${FTP_SERVER_URL}
+#          lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "mirror -Re dist/. /site/wwwroot/." ${FTP_SERVER_URL}
+#after-steps:
+#    - slack-notifier:
+#        url: $SLACK_WEBHOOK_URL
+#        username: Wercker
