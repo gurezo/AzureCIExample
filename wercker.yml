@@ -1,7 +1,7 @@
 # wercker ci
-${FTP_USERNAME}: "AzureCIExample\\gurezo"
-${FTP_PASSWORD}: "yamahaow01"
-${FTP_SERVER_URL}: "ftp://waws-prod-sn1-089.ftp.azurewebsites.windows.net"
+# ${FTP_USERNAME}: "AzureCIExample\\gurezo"
+# ${FTP_PASSWORD}: "yamahaow01"
+# ${FTP_SERVER_URL}: "ftp://waws-prod-sn1-089.ftp.azurewebsites.windows.net"
 
 # This references the default nodejs container from
 # the Docker Hub: https://registry.hub.docker.com/_/node/
