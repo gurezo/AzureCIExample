@@ -3,4 +3,8 @@ deployment:
     branch: master
     owner: circleci
     commands:
-      - ./deploy_master.sh
+#      - chmod +x ./deploy_master.sh
+#      - ./deploy_master.sh
+        npm install -g angular-cli
+        ng build
+        lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "mirror -Rev dist/. /site/wwwroot/." ${FTP_SERVER_URL}
