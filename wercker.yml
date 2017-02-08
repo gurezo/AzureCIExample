@@ -55,3 +55,7 @@ deploy:
         name: azure ftp deploy
         code: |
           lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "mirror -Re dist/. /site/wwwroot/." ${FTP_SERVER_URL}
+# after-steps:
+#     - slack-notifier:
+#         url: $SLACK_WEBHOOK_URL
+#         username: Wercker
