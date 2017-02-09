@@ -1,0 +1,39 @@
+box: wercker/ruby
+ services:
+     - wercker/postgresql
+ build:
+     steps:
+       - bundle-install
+       - rails-database-yml:
+           service: postgresql
+       - script:
+           name: echo ruby information
+           code: |
+               echo “ruby version $(ruby –version) running!”
+               echo “from location $(which ruby)”
+               echo -p “gem list: $(gem list)”
+       - script:
+           name: Set up db
+           code: RAILS_ENV=test bundle exec rake db:schema:load
+       - script:
+           name: Run RSpec
+           code: bundle exec rspec
+     # ここから追加 ——————————
+     after-steps:
+       - sherzberg/slack-notify:
+           subdomain: hoge
+           token: $SLACK_TOKEN
+           channel: “#general”
+           username: wercker
+           icon_url: https://avatars3.githubusercontent.com/u/1695193?s=140
+     # ここまで————————————
+ deploy:
+     steps:
+         - heroku-deploy:
+             install-toolbelt: true
+         - script:
+             name: Update database
+             code: heroku run rake db:migrate –app $APP_NAME
+         - script:
+             name: Update assets
+             code: heroku run rake add_static_assets –app $APP_NAME

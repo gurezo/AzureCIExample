@@ -1,0 +1,10 @@
+box: wercker/default
+#build:
+#  steps:
+#    - validate-wercker-step
+build:
+  steps:
+    - wercker-labs/azure-ftp-deploy:
+        publish-url: ftp://waws-prod-sn1-089.ftp.azurewebsites.windows.net/site/wwwroot
+        username: AzureCIExample\\gurezo
+        password: yamahaow01
