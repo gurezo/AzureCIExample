@@ -49,7 +49,7 @@ deploy:
     - script:
         name: azure ftp deploy
         code: |
-          lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "mirror -Re dist/. /site/wwwroot/." ${FTP_SERVER_URL}
+          ftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "mirror -Re dist/. /site/wwwroot/." ${FTP_SERVER_URL}
 #          lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "put ./file_clear.sh /site/wwwroot/." ${FTP_SERVER_URL}
 #          lftp -u AzureCIExample\\gurezo,yamahaow01 -e "put ./file_clear.sh /site/wwwroot/." ftp://waws-prod-sn1-089.ftp.azurewebsites.windows.net
 #          lftp -u ${FTP_USERNAME},${FTP_PASSWORD} -e "set ssl:verify-certificate no;mirror -Rev -X wercker.yml dist/. /site/wwwroot/." ${FTP_SERVER_URL}
