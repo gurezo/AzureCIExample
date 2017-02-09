@@ -12,8 +12,17 @@ FTP_USERNAME="AzureCIExample\\gurezo"
 
 echo "Test connection"
 
-echo "curl -u $FTP_USERNAME:FTP_PASSWORD $FTP_URL/"
-curl -u $FTP_USERNAME:$FTP_PASSWORD $FTP_URL/
+#echo "curl -u $FTP_USERNAME:FTP_PASSWORD $FTP_URL/"
+#curl -u $FTP_USERNAME:$FTP_PASSWORD $FTP_URL/
 
-echo "find . -type f -exec curl -u $FTP_USERNAME:FTP_PASSWORD --ftp-create-dirs -T {} $FTP_URL/{} \;"
-find . -type f -exec curl -u $FTP_USERNAME:$FTP_PASSWORD --ftp-create-dirs -T {} $FTP_URL/{} \;
+#echo "find . -type f -exec curl -u $FTP_USERNAME:FTP_PASSWORD --ftp-create-dirs -T {} $FTP_URL/{} \;"
+#find . -type f -exec curl -u $FTP_USERNAME:$FTP_PASSWORD --ftp-create-dirs -T {} $FTP_URL/{} \;
+
+echo "install angular-cli...."
+npm install -g angular-cli
+
+echo "ng build...."
+ng build
+
+echo "azure ftp deploy...."
+lftp -u AzureCIExample\\gurezo,yamahaow01 -e "mirror -Rev dist/. /site/wwwroot/." ftp://waws-prod-sn1-089.ftp.azurewebsites.windows.net
